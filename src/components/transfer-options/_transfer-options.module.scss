@@ -1,0 +1,45 @@
+@import '../app/variables.scss';
+
+.transfer {
+  width: 232px;
+  height: 252px;
+  padding: 20px 0;
+}
+
+.transfer--margin-right {
+  margin-right: 20px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 40px;
+  padding: 10px;
+  padding-left: 50px;
+  letter-spacing: 0;
+  font-weight: 400;
+
+  &:hover {
+    background-color: $light-blue;
+  }
+}
+
+.check__input {
+  appearance: none;
+
+
+  &:checked + .check__box {
+    border-color: $main-blue;
+    background: url('../../img/checked.svg') no-repeat 50% 55%;
+  }
+}
+
+.check__box {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-left: -30px;
+  border-radius: 2px;
+  border: 1px solid $grey-blue;
+}

@@ -1,0 +1,28 @@
+@import '../app/variables.scss';
+
+.ticket {
+  width: 502px;
+  height: 184px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.ticket__head {
+  display: flex;
+  justify-content: space-between; 
+  margin-bottom: 20px;
+}
+
+.ticket__price {
+  color: $main-blue;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+.ticket__airline {
+  margin-top: -5px;
+}
+
+.ticket__body {
+}

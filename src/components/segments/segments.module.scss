@@ -1,0 +1,22 @@
+@import '../app/variables';
+
+.segment {
+  height: 39px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.segment__caption {
+  color: $grey-text;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+.segment__info {
+  font-size: 14px;
+  line-height: 21px;
+}
