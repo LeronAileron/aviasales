@@ -5,15 +5,66 @@ import styles from "./_transfer-options.module.scss";
 
 let classes = classNames.bind(styles);
 
-const TransferOptions = () => {
+const TransferOptions = (props) => {
+  const {
+    transferOptionsSelected,
+    addTransferOptions,
+    removeTransferOptions,
+    checkAll,
+    uncheckAll,
+  } = props;
+
   let key = 100;
   const options = [
-    "Все",
-    "Без пересадок",
-    "1 пересадка",
-    "2 пересадки",
-    "3 пересадки",
+    {
+      name: "Все",
+      label: "all",
+    },
+    {
+      name: "Без пересадок",
+      label: "direct",
+    },
+    {
+      name: "1 пересадка",
+      label: "one",
+    },
+    {
+      name: "2 пересадки",
+      label: "two",
+    },
+    {
+      name: "3 пересадки",
+      label: "three",
+    },
   ];
+
+  function handleChange(option) {
+    const allSelected = checkAllSelected();
+
+    if (option.label === "all") {
+      if (allSelected) uncheckAll();
+      else {
+        const allOptions = options.map((opt) => opt.label);
+        return checkAll(allOptions);
+      }
+    } else if (!checkSelected(option)) {
+      if (transferOptionsSelected.length === 3) addTransferOptions("all");
+      return addTransferOptions(option.label);
+    } else {
+      if (allSelected) removeTransferOptions("all");
+      return removeTransferOptions(option.label);
+    }
+  }
+
+  function checkSelected(option) {
+    if (transferOptionsSelected.includes(option.label)) return true;
+    else return false;
+  }
+
+  function checkAllSelected() {
+    if (transferOptionsSelected.includes("all")) return true;
+    else return false;
+  }
 
   const checkOptions = options.map((option) => {
     key++;
@@ -23,10 +74,12 @@ const TransferOptions = () => {
           className={styles.check__input}
           type="checkbox"
           name="transfer-options"
-          value={option}
+          value={option.label}
+          checked={checkSelected(option)}
+          onChange={() => handleChange(option)}
         />
         <span className={styles.check__box}></span>
-        {option}
+        {option.name}
       </label>
     );
   });

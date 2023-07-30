@@ -1,1 +1,3 @@
-export { TicketList } from "./ticket-list";
+import TicketList from "./ticket-list";
+
+export default TicketList;

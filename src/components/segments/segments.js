@@ -107,6 +107,6 @@ function getFormattedDuration(dur) {
 }
 
 function getFormattedMinutes(mins) {
-  mins = Math.round(mins / 5) * 5;
-  return mins;
+  const formattedMins = Math.round(mins / 5) * 5;
+  return formattedMins;
 }

@@ -5,7 +5,7 @@ import { Segments } from "../segments";
 
 import styles from "./ticket.module.scss";
 
-export const Ticket = ({ ticket }) => {
+const Ticket = ({ ticket }) => {
   const { price, carrier, segments } = ticket;
 
   const priceFormatted = getFormattedPrice(price);
@@ -25,11 +25,13 @@ export const Ticket = ({ ticket }) => {
   );
 };
 
-function getFormattedPrice(price) {
-  price = price.toString();
+function getFormattedPrice(initialPrice) {
+  let price = initialPrice.toString();
   const end = price.substr(-3, 3);
   const start = price.slice(0, -3);
 
   const result = `${start} ${end}`;
   return result;
 }
+
+export default Ticket;

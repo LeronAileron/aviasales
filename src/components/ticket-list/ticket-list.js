@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Ticket } from "../ticket";
+import Ticket from "../ticket";
 
 import styles from "./ticket-list.module.scss";
 
@@ -19,7 +19,7 @@ const TicketList = () => {
   return <ul className={styles["ticket-list"]}>{tickets}</ul>;
 };
 
-export { TicketList };
+export default TicketList;
 
 const serverTickets = {
   tickets: [

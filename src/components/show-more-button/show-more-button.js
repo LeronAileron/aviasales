@@ -5,9 +5,9 @@ import styles from "./show-more-button.module.scss";
 const ShowMoreButton = () => {
   return (
     <button className={styles["show-more-button"]}>
-      Показать еще 5 билетов
+      Показать еще 5 билетов!
     </button>
   );
 };
 
-export { ShowMoreButton };
+export default ShowMoreButton;
