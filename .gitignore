@@ -6,6 +6,8 @@
 .pnp.js
 /.vscode
 
+# добавить "npm run format" в package.json
+
 # testing
 /coverage
 

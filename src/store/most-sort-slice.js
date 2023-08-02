@@ -1,17 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 const mostSortSlice = createSlice({
-  name: "most",
+  name: 'most',
   initialState: {
-    most: "cheap",
+    most: 'cheap',
   },
   reducers: {
     selectMost(state, action) {
-      state.most = action.payload.most;
+      state.most = action.payload.most
     },
   },
-});
+})
 
-export const { selectMost } = mostSortSlice.actions;
+export const { selectMost } = mostSortSlice.actions
 
-export default mostSortSlice.reducer;
+export default mostSortSlice.reducer

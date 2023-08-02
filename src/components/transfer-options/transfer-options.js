@@ -1,9 +1,9 @@
-import React from "react";
-import classNames from "classnames/bind";
+import React from 'react'
+import classNames from 'classnames/bind'
 
-import styles from "./_transfer-options.module.scss";
+import styles from './_transfer-options.module.scss'
 
-let classes = classNames.bind(styles);
+let classes = classNames.bind(styles)
 
 const TransferOptions = (props) => {
   const {
@@ -12,62 +12,62 @@ const TransferOptions = (props) => {
     removeTransferOptions,
     checkAll,
     uncheckAll,
-  } = props;
+  } = props
 
-  let key = 100;
+  let key = 100
   const options = [
     {
-      name: "Все",
-      label: "all",
+      name: 'Все',
+      label: 'all',
     },
     {
-      name: "Без пересадок",
-      label: "direct",
+      name: 'Без пересадок',
+      label: 'direct',
     },
     {
-      name: "1 пересадка",
-      label: "one",
+      name: '1 пересадка',
+      label: 'one',
     },
     {
-      name: "2 пересадки",
-      label: "two",
+      name: '2 пересадки',
+      label: 'two',
     },
     {
-      name: "3 пересадки",
-      label: "three",
+      name: '3 пересадки',
+      label: 'three',
     },
-  ];
+  ]
 
   function handleChange(option) {
-    const allSelected = checkAllSelected();
+    const allSelected = checkAllSelected()
 
-    if (option.label === "all") {
-      if (allSelected) uncheckAll();
+    if (option.label === 'all') {
+      if (allSelected) uncheckAll()
       else {
-        const allOptions = options.map((opt) => opt.label);
-        return checkAll(allOptions);
+        const allOptions = options.map((opt) => opt.label)
+        return checkAll(allOptions)
       }
     } else if (!checkSelected(option)) {
-      if (transferOptionsSelected.length === 3) addTransferOptions("all");
-      return addTransferOptions(option.label);
+      if (transferOptionsSelected.length === 3) addTransferOptions('all')
+      return addTransferOptions(option.label)
     } else {
-      if (allSelected) removeTransferOptions("all");
-      return removeTransferOptions(option.label);
+      if (allSelected) removeTransferOptions('all')
+      return removeTransferOptions(option.label)
     }
   }
 
   function checkSelected(option) {
-    if (transferOptionsSelected.includes(option.label)) return true;
-    else return false;
+    if (transferOptionsSelected.includes(option.label)) return true
+    else return false
   }
 
   function checkAllSelected() {
-    if (transferOptionsSelected.includes("all")) return true;
-    else return false;
+    if (transferOptionsSelected.includes('all')) return true
+    else return false
   }
 
   const checkOptions = options.map((option) => {
-    key++;
+    key++
     return (
       <label key={key} className={styles.check}>
         <input
@@ -81,17 +81,17 @@ const TransferOptions = (props) => {
         <span className={styles.check__box}></span>
         {option.name}
       </label>
-    );
-  });
+    )
+  })
 
-  const transferClasses = classes("transfer", "transfer--margin-right");
+  const transferClasses = classes('transfer', 'transfer--margin-right')
 
   return (
     <aside className={`${transferClasses} shaped-box`}>
       <h3 className="title3 title3--margins-diff">Количество пересадок</h3>
       <div>{checkOptions}</div>
     </aside>
-  );
-};
+  )
+}
 
-export default TransferOptions;
+export default TransferOptions

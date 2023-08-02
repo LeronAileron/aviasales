@@ -1,23 +1,23 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import styles from "./_most-options.module.scss";
+import styles from './_most-options.module.scss'
 
 const MostOptions = ({ selectedOption, selectOption }) => {
   const options = [
     {
-      name: "Самый дешевый",
-      label: "cheap",
+      name: 'Самый дешевый',
+      label: 'cheap',
     },
     {
-      name: "Самый быстрый",
-      label: "fast",
+      name: 'Самый быстрый',
+      label: 'fast',
     },
     {
-      name: "Оптимальный",
-      label: "optimal",
+      name: 'Оптимальный',
+      label: 'optimal',
     },
-  ];
+  ]
 
   const mostOptions = options.map((option, i) => {
     return (
@@ -35,15 +35,15 @@ const MostOptions = ({ selectedOption, selectOption }) => {
           <h3 className="title3 title3--center">{option.name}</h3>
         </label>
       </div>
-    );
-  });
+    )
+  })
 
-  return <div className={styles.most}>{mostOptions}</div>;
-};
+  return <div className={styles.most}>{mostOptions}</div>
+}
 
-export default MostOptions;
+export default MostOptions
 
 MostOptions.propTypes = {
   selectedOption: PropTypes.string.isRequired,
   selectOption: PropTypes.func.isRequired,
-};
+}

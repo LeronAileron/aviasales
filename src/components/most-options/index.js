@@ -1,3 +1,3 @@
-import MostOptions from "./most-options";
+import MostOptions from './most-options'
 
-export default MostOptions;
+export default MostOptions

@@ -1,3 +1,3 @@
-import TransferOptions from "./transfer-options";
+import TransferOptions from './transfer-options'
 
-export default TransferOptions;
+export default TransferOptions

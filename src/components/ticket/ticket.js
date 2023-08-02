@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react'
 
-import { Segments } from "../segments";
+import { Segments } from '../segments'
 // import classNames from 'classnames/bind'
 
-import styles from "./ticket.module.scss";
+import styles from './ticket.module.scss'
 
 const Ticket = ({ ticket }) => {
-  const { price, carrier, segments } = ticket;
+  const { price, carrier, segments } = ticket
 
-  const priceFormatted = getFormattedPrice(price);
+  const priceFormatted = getFormattedPrice(price)
 
   return (
     <div className={styles.ticket}>
@@ -22,16 +22,16 @@ const Ticket = ({ ticket }) => {
         <Segments segments={segments} />
       </div>
     </div>
-  );
-};
-
-function getFormattedPrice(initialPrice) {
-  let price = initialPrice.toString();
-  const end = price.substr(-3, 3);
-  const start = price.slice(0, -3);
-
-  const result = `${start} ${end}`;
-  return result;
+  )
 }
 
-export default Ticket;
+function getFormattedPrice(initialPrice) {
+  let price = initialPrice.toString()
+  const end = price.substr(-3, 3)
+  const start = price.slice(0, -3)
+
+  const result = `${start} ${end}`
+  return result
+}
+
+export default Ticket

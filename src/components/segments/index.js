@@ -1,1 +1,1 @@
-export { Segments } from "./segments";
+export { Segments } from './segments'

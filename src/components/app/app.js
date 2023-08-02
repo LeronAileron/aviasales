@@ -1,42 +1,49 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-import { selectMost } from "../../store/most-sort-slice";
+import { fetchTickets } from '../../store/tickets-slice'
+import { selectMost } from '../../store/most-sort-slice'
 import {
   addTransferType,
   removeTransferType,
   checkAll,
   uncheckAll,
-} from "../../store/transfers-slice";
-import TransferOptions from "../transfer-options";
-import MostOptions from "../most-options";
-import TicketList from "../ticket-list";
-import ShowMoreButton from "../show-more-button";
-import "./app.scss";
-import logo from "../../img/Logo.png";
+} from '../../store/transfers-slice'
+import TransferOptions from '../transfer-options'
+import MostOptions from '../most-options'
+import TicketList from '../ticket-list'
+import ShowMoreButton from '../show-more-button'
+import './app.scss'
+import logo from '../../img/Logo.png'
 
 const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const most = useSelector((state) => state.most.most);
-  const selectOption = (most) => dispatch(selectMost({ most }));
+  const most = useSelector((state) => state.most.most)
+  const selectOption = (most) => dispatch(selectMost({ most }))
 
   const transferOptionsSelected = useSelector(
     (state) => state.transfer.transfer,
-  );
+  )
   const addTransferOptions = (transfer) =>
-    dispatch(addTransferType({ transfer }));
+    dispatch(addTransferType({ transfer }))
 
   const removeTransferOptions = (transfer) =>
-    dispatch(removeTransferType({ transfer }));
+    dispatch(removeTransferType({ transfer }))
 
   const checkAllOption = (transfer) => {
-    dispatch(checkAll({ transfer }));
-  };
+    dispatch(checkAll({ transfer }))
+  }
 
   const uncheckAllOptions = () => {
-    dispatch(uncheckAll());
-  };
+    dispatch(uncheckAll())
+  }
+
+  const { status, error } = useSelector((state) => state.tickets)
+
+  useEffect(() => {
+    dispatch(fetchTickets())
+  }, [dispatch])
 
   return (
     <>
@@ -53,12 +60,14 @@ const App = () => {
         />
         <main>
           <MostOptions selectedOption={most} selectOption={selectOption} />
-          <TicketList />
+          {status === 'loading' && <h2>Loading...</h2>}
+          {error && <h2>An error occured: {error}</h2>}
+          {status === 'resolved' && <TicketList />}
           <ShowMoreButton />
         </main>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

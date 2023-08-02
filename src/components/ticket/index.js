@@ -1,3 +1,3 @@
-import Ticket from "./ticket.js";
+import Ticket from './ticket.js'
 
-export default Ticket;
+export default Ticket
