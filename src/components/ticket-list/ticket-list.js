@@ -38,36 +38,36 @@ function sortByMost(tickets, most) {
   const ticketsCopy = JSON.parse(JSON.stringify(tickets))
   let ticketsSorted
   switch (most) {
-    case 'cheap':
-      ticketsSorted = ticketsCopy.sort((a, b) => {
-        if (a && b) {
-          return a.price - b.price
-        }
-      })
-      break
+  case 'cheap':
+    ticketsSorted = ticketsCopy.sort((a, b) => {
+      if (a && b) {
+        return a.price - b.price
+      }
+    })
+    break
 
-    case 'fast':
-      ticketsSorted = ticketsCopy.sort((a, b) => {
-        if (a && b) {
-          return checkFlightShorter(a, b)
-        }
-      })
-      break
+  case 'fast':
+    ticketsSorted = ticketsCopy.sort((a, b) => {
+      if (a && b) {
+        return checkFlightShorter(a, b)
+      }
+    })
+    break
 
-    case 'optimal':
-      ticketsSorted = ticketsCopy.sort((a, b) => {
-        if (a && b) {
-          if (
-            a.price < 25000 &&
+  case 'optimal':
+    ticketsSorted = ticketsCopy.sort((a, b) => {
+      if (a && b) {
+        if (
+          a.price < 25000 &&
             a.price < b.price &&
             a.segments[0].stops.length < 2 &&
             a.segments[1].stops.length < 2
-          ) {
-            return -1
-          } else return 1
-        }
-      })
-      break
+        ) {
+          return -1
+        } else return 1
+      }
+    })
+    break
   }
 
   return ticketsSorted

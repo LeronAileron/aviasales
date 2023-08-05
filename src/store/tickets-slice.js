@@ -9,7 +9,7 @@ export const fetchSearchId = createAsyncThunk('ticket/fetchSearchId', async func
     const searchIdResponse = await fetch(`${url}search`)
 
     if (!searchIdResponse.ok) {
-      throw new Error("Can't fetch search id")
+      throw new Error('Cannot fetch search id')
     }
     const data = await searchIdResponse.json()
 
@@ -32,7 +32,7 @@ export const fetchTickets = createAsyncThunk(
       const ticketsHead = await fetch(`${url}tickets?searchId=${searchId}`)
 
       if (!ticketsHead.ok) {
-        throw new Error("Can't fetch tickets")
+        throw new Error('Cannot fetch tickets')
       }
 
       const tickets = await ticketsHead.json()
@@ -50,7 +50,7 @@ export const fetchTickets = createAsyncThunk(
       fetchErrorCount++
       if (fetchErrorCount > 8) {
         console.log(error.message)
-        console.log("i'm done")
+        console.log('i\'m done')
         return
       }
 
