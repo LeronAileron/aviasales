@@ -1,5 +1,6 @@
 /* eslint-disable indent */
 import React from 'react'
+import PropTypes from 'prop-types'
 import { add, format } from 'date-fns'
 
 import styles from './segments.module.scss'
@@ -29,12 +30,8 @@ const Segments = ({ segments }) => {
     return (
       <div className={styles.segment} key={key}>
         <div>
-          <div
-            className={styles.segment__caption}
-          >{`${origin} – ${destination}`}</div>
-          <div
-            className={styles.segment__info}
-          >{`${departureTime} – ${arrivalTime}`}</div>
+          <div className={styles.segment__caption}>{`${origin} – ${destination}`}</div>
+          <div className={styles.segment__info}>{`${departureTime} – ${arrivalTime}`}</div>
         </div>
         <div>
           <div className={styles.segment__caption}>{routeTimeCaption}</div>
@@ -109,4 +106,16 @@ function getFormattedDuration(dur) {
 function getFormattedMinutes(mins) {
   const formattedMins = Math.round(mins / 5) * 5
   return formattedMins
+}
+
+Segments.propTypes = {
+  segments: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.string,
+      destination: PropTypes.string,
+      duration: PropTypes.number,
+      origin: PropTypes.string,
+      stops: PropTypes.arrayOf(PropTypes.string),
+    })
+  ),
 }

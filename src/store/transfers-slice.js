@@ -10,9 +10,7 @@ const transferSlice = createSlice({
       state.transfer.push(action.payload.transfer)
     },
     removeTransferType(state, action) {
-      state.transfer = state.transfer.filter(
-        (option) => option !== action.payload.transfer,
-      )
+      state.transfer = state.transfer.filter((option) => option !== action.payload.transfer)
     },
     checkAll(state, action) {
       state.transfer = action.payload.transfer
@@ -23,7 +21,6 @@ const transferSlice = createSlice({
   },
 })
 
-export const { addTransferType, removeTransferType, checkAll, uncheckAll } =
-  transferSlice.actions
+export const { addTransferType, removeTransferType, checkAll, uncheckAll } = transferSlice.actions
 
 export default transferSlice.reducer

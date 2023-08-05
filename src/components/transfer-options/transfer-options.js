@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 
 import styles from './_transfer-options.module.scss'
@@ -6,13 +7,7 @@ import styles from './_transfer-options.module.scss'
 let classes = classNames.bind(styles)
 
 const TransferOptions = (props) => {
-  const {
-    transferOptionsSelected,
-    addTransferOptions,
-    removeTransferOptions,
-    checkAll,
-    uncheckAll,
-  } = props
+  const { transferOptionsSelected, addTransferOptions, removeTransferOptions, checkAll, uncheckAll } = props
 
   let key = 100
   const options = [
@@ -95,3 +90,11 @@ const TransferOptions = (props) => {
 }
 
 export default TransferOptions
+
+TransferOptions.propTypes = {
+  transferOptionsSelected: PropTypes.arrayOf(PropTypes.string),
+  addTransferOptions: PropTypes.func.isRequired,
+  removeTransferOptions: PropTypes.func.isRequired,
+  checkAll: PropTypes.func.isRequired,
+  uncheckAll: PropTypes.func.isRequired,
+}

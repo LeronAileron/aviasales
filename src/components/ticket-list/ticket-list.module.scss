@@ -1,8 +1,9 @@
 .ticket-list {
   padding: 0;
   margin: 0;
-}
+  min-width: 390px;
 
-.ticket-list__ticket {
-  display: block;
+  &__ticket {
+    display: block;
+  }
 }

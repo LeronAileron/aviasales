@@ -1,13 +1,15 @@
 @import '../app/variables';
 
 .show-more-button {
-  width: 502px;
+  min-width: 390px;
   height: 50px;
   background-color: $main-blue;
   color: $white;
-  // outline
   text-transform: uppercase;
   border: none;
   border-radius: 5px;
 
+  @media(min-width: 676px) {
+    width: 502px;
+  }
 }
